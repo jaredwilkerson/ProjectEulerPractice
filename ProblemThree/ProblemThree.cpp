@@ -7,37 +7,61 @@
  * *********/
 
 #include <vector>
+#include <iostream>
 
-std::vector<int> primes;
+std::vector<int> getPrimes(int target){
+	std::vector<int> primes;
+	
+	if(1 < target){
+		int curr = 2;//start at the first prime
 
+		//half of the target is the largest possible prime number
+		while(curr <= (.5 * target)){
+			bool prime = true;//assume it is prime
 
-int getPrimes(int target){
-	int curr = 2;
+			//divide by the previous primes
+			for(int x=0;x<primes.size();++x){
+				//if evenly divisiable then not a prime	
+				if( 0 == (curr%primes[x])){
+					prime=false;
+				}
+			} 
+			//if prime, add to the list of primes
+			if(prime){
+				primes.push_back(curr);
+			}
+			++curr;//go to the next number
+		}
+	}
+	else{
+		primes.push_back(0);
+		return primes;
 
-        while(curr < (.5 * x)){
-                prime = true;
-                for(int x=0;x<primes.length();++x){ 
-                        if( 0 == (curr%primes[x])){
-                                prime=false;
-                        }
-                } 
-		if(prime){
-			primes.push_back(curr);
+	}
+
+	return primes;
+}
+
+int getLargestFactor(std::vector<int> factors, int target){
+	int curr = 0;
+	int largest = 0;
+
+	while((.5 * target) > factors[curr]){
+		if((target % factors[curr]) == 0){
+			largest = factors[curr];
+			std::cout << "Current largest: " << factors[curr] << std::endl;
 		}
 		++curr;
-        }
+	}
+
+	return largest;
 }
 
 
 int main(){
-	bool found = false;
-	while(curr < (.5 * x)){
-        	prime = true;
-		for(int x=0;x<primes.length();++x){
-			if( 0 == (curr%primes[x])){
-				prime=false;
-			}
-		}   
-		
-	}
+
+	std::vector<int> primes = getPrimes(13195);
+	int largest = getLargestFactor(primes, 13195);
+	std::cout << "The largest prime is: " << primes[primes.size()-1] << std::endl;
+	std::cout << "The largest factor is: " << largest << std::endl;
 }
