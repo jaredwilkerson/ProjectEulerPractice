@@ -18,7 +18,7 @@ struct c_unique {
 
 std::vector<long> getPrimes(long target){
 	long tmpTarget = target;
-	int interval = 100000;
+	int interval = 10000;
 	std::vector<long> primes;
 
 	if(1 < target){
