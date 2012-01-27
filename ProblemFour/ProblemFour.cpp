@@ -12,7 +12,7 @@ int ProblemFour::largestPal(int length){
 	for(int x = 0; x < power; ++x){
 		for(int y = 0; y < power; ++y){
 			int canidate = x * y;
-			if(checkPal(canidate)){
+			if( checkPal(canidate) && (palindrome < canidate) ){
 				palindrome = canidate;
 			}
 		}
@@ -21,8 +21,19 @@ int ProblemFour::largestPal(int length){
 }
 
 bool ProblemFour::checkPal(int canidate){
-	bool isPal = false;
+	bool isPal = true;
 	std::vector<int> vectorCanidate = vectorizeCanidate(canidate);
+	std::vector<int>::iterator front;
+        std::vector<int>::iterator back;
+	front = vectorCanidate.begin();
+	back  = vectorCanidate.end()-1;
+	while(front <= back){
+		if(*front != *back){
+			isPal = false;
+		}
+		++front;
+		--back;
+	}
 	
 	return isPal;
 }

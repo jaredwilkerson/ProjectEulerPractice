@@ -23,8 +23,6 @@ void ProblemFourTest::vectorizeTest(){
 	std::vector<int> testVec = std::vector<int>();
 	testVec = pf->vectorizeCanidate( 1234 );
 
-
-	std::cout << "Vector size: " << testVec.size() << std::endl;
 	CPPUNIT_ASSERT( 4 == testVec.size() );
 	CPPUNIT_ASSERT( 4 == testVec[0] &&
 		        3 == testVec[1] &&
