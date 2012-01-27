@@ -45,6 +45,9 @@ std::vector<long> getPrimes(long target){
 				//std::cout << "I have " << primes.size() << " primes." << std::endl;
 				primes.push_back(*numItr);
 				while(0 == (tmpTarget%*numItr)){
+					if(*numItr > tmpTarget){
+						return primes;
+					}
 					tmpTarget /= *numItr;//use prime factorization to shrink the target
 				}
 				//std::cout << *numItr << " is prime." << std::endl;
