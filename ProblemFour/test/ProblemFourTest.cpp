@@ -20,14 +20,16 @@ void ProblemFourTest::tearDown(){
  */
 
 void ProblemFourTest::vectorizeTest(){
-	std::vector<int> testVec;
+	std::vector<int> testVec = std::vector<int>();
 	testVec = pf->vectorizeCanidate( 1234 );
 
+
+	std::cout << "Vector size: " << testVec.size() << std::endl;
 	CPPUNIT_ASSERT( 4 == testVec.size() );
-	CPPUNIT_ASSERT( 1 == testVec[0] &&
-		        2 == testVec[1] &&
-			3 == testVec[2] &&
-			4 == testVec[3] );		
+	CPPUNIT_ASSERT( 4 == testVec[0] &&
+		        3 == testVec[1] &&
+			2 == testVec[2] &&
+			1 == testVec[3] );		
 }
 void ProblemFourTest::checkPalTest(){
 	CPPUNIT_ASSERT( pf->checkPal( 99 ));

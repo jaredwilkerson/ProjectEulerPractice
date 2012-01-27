@@ -22,19 +22,21 @@ int ProblemFour::largestPal(int length){
 
 bool ProblemFour::checkPal(int canidate){
 	bool isPal = false;
-	int tmpCanidate = canidate;
-	std::vector<int> vectorCanidate;
-	do {//put the number into a vector
-		int digit = tmpCanidate % 10;
-		tmpCanidate /= 10;
-		vectorCanidate.push_back(digit);
-	}while(0 != (tmpCanidate / 10));//do until it's completely in the vector
-
+	std::vector<int> vectorCanidate = vectorizeCanidate(canidate);
 	
 	return isPal;
 }
 
 std::vector<int> ProblemFour::vectorizeCanidate(int canidate){
-	std::vector<int> vectorizedCan;
-	return vectorizedCan;
+	std::vector<int> vectorCanidate = std::vector<int>();
+	int digit = 0;
+	bool vectorized = false;
+	do {//put the number into a vector
+		digit = canidate%10;
+		canidate /= 10;
+		vectorCanidate.push_back(digit);
+
+	}while(0 != canidate);//do until it's completely in the vector
+
+	return vectorCanidate;
 }
