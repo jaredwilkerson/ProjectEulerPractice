@@ -6,6 +6,7 @@
 CPPUNIT_TEST_SUITE_REGISTRATION( ProblemFourTest );
 
 void ProblemFourTest::setUp(){
+	pf = new ProblemFour();
 }
 
 void ProblemFourTest::tearDown(){
@@ -17,8 +18,25 @@ void ProblemFourTest::tearDown(){
  * The largest palindrome made from the product of
  * two 2-digit numbers is 9009 = 91 99.
  */
-void ProblemFourTest::defaultTest(){
-	pf = new ProblemFour();
-	int largestPal = pf->largestPal(2);
-	CPPUNIT_ASSERT(9009 == largestPal);
+
+void ProblemFourTest::vectorizeTest(){
+	std::vector<int> testVec;
+	testVec = pf->vectorizeCanidate( 1234 );
+
+	CPPUNIT_ASSERT( 4 == testVec.size() );
+	CPPUNIT_ASSERT( 1 == testVec[0] &&
+		        2 == testVec[1] &&
+			3 == testVec[2] &&
+			4 == testVec[3] );		
 }
+void ProblemFourTest::checkPalTest(){
+	CPPUNIT_ASSERT( pf->checkPal( 99 ));
+	CPPUNIT_ASSERT( pf->checkPal(9009) );	
+}
+void ProblemFourTest::largestPalTest(){
+	int largestPal = pf->largestPal(2);
+
+	CPPUNIT_ASSERT( 9009 == largestPal );
+}
+
+

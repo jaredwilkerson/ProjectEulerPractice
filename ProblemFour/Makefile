@@ -1,3 +1,9 @@
+#This is an example of a src dir level make file.
+#If this were a module in a larger project then
+#a top level make file would call this, and the 
+#tests would have thier own makefile.
+#
+#
 #ProblemFour Make file
 # $@ name of the target
 # $^ name of all prerequisites with duplicates removed
