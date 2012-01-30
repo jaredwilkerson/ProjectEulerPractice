@@ -15,14 +15,14 @@ CC = g++
 CFLAGS = -ggdb #compile with debugging for gdb
 LDFLAGS_TARGET =
 LDFLAGS_TEST = -lcppunit
-COMMON_SOURCES = ProblemFour.cpp
+COMMON_SOURCES = ProblemFive.cpp
 TARGET_SOURCES = main.cpp
-TEST_SOURCES = test/ProblemFourTestMain.cpp test/ProblemFourTest.cpp
+TEST_SOURCES = test/ProblemFiveTestMain.cpp test/ProblemFiveTest.cpp
 COMMON_OBJECTS = $(COMMON_SOURCES:.cpp=.o)
 TARGET_OBJECTS = $(TARGET_SOURCES:.cpp=.o)
 TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
-EXECUTABLE = ProblemFour 
-TEST_EXECUTABLE = ProblemFourTest
+EXECUTABLE = ProblemFive 
+TEST_EXECUTABLE = ProblemFiveTest
 
 #.PHONY means that there should never be a file made named 'all',
 #or 'target', or 'tests', therefore these commands will be run
@@ -47,4 +47,5 @@ $(TEST_EXECUTABLE): $(COMMON_OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	\rm *.o test/*.o $(EXECUTABLE) $(TEST_EXECUTABLE) 
+	\rm *.o test/*.o $(EXECUTABLE) $(TEST_EXECUTABLE)
+
